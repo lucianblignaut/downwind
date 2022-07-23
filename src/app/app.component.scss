@@ -1,0 +1,8 @@
+mat-sidenav {
+    width: 50%;
+}
+
+mat-sidenav-container {
+    height: calc(100% - 80px);
+    z-index: -1;
+}

@@ -1,0 +1,7 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "scssFormatter.singleQuote": true,
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.currentLine.enabled": true
+}

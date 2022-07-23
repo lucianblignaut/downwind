@@ -1,0 +1,104 @@
+$primary: #265ded;
+$primary-darker: #174bcc;
+.login {
+    height: 50px;
+    width: 120px;
+    border: 1px solid $primary;
+    border-radius: 7px;
+    color: $primary;
+    background-color: transparent;
+    transition: transform 0.15s ease;
+    font-weight: 500;
+    margin-right: 8px;
+    margin-left: 16px;
+    &:hover {
+        background-color: $primary;
+        color: white;
+        cursor: pointer;
+        transform: translateY(-3px);
+        box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    }
+}
+
+.nav-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.signup {
+    height: 50px;
+    width: 120px;
+    border: 1px solid $primary;
+    border-radius: 7px;
+    background-color: $primary;
+    color: white;
+    transition: transform 0.15s ease;
+    font-weight: 500;
+    margin-left: 8px;
+    &:hover {
+        background-color: $primary-darker;
+        color: white;
+        cursor: pointer;
+        transform: translateY(-3px);
+        box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    }
+}
+
+header {
+    z-index: 10;
+    height: 80px;
+    width: 100%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+nav {
+    height: 80px;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    img.logo {
+        height: 50px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    img.burger,
+    img.close {
+        transition: all 0.2s ease;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.nav-items {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 80%;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    li {
+        margin-right: 1.5rem;
+        font-weight: 500;
+        transition: color 0.15s ease;
+        &:hover {
+            cursor: pointer;
+            color: $primary;
+        }
+    }
+}
+
+// mobile
+header.handset {
+    .nav-items {
+        display: none;
+    }
+}
