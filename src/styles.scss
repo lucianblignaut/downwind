@@ -1,1 +1,133 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$md-primary: ( 50: #e5ecfd, 100: #becefa, 200: #93aef6, 300: #678ef2, 400: #4775f0, 500: #265ded, 600: #2255eb, 700: #1c4be8, 800: #1741e5, 900: #0d30e0, A100: #ffffff, A200: #d9deff, A400: #a6b1ff, A700: #8c9bff, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #ffffff, 500: #ffffff, 600: #ffffff, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #000000, A400: #000000, A700: #000000, ), );
+$md-accent: ( 50: #fff9e4, 100: #fff0bc, 200: #ffe78f, 300: #ffdd62, 400: #ffd541, 500: #ffce1f, 600: #ffc91b, 700: #ffc217, 800: #ffbc12, 900: #ffb00a, A100: #ffffff, A200: #fffbf5, A400: #ffe9c2, A700: #ffe0a8, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #000000, 500: #000000, 600: #000000, 700: #000000, 800: #000000, 900: #000000, A100: #000000, A200: #000000, A400: #000000, A700: #000000, ), );
+$downwind-primary: mat.define-palette($md-primary, 500);
+$downwind-accent: mat.define-palette($md-accent, 500);
+// The warn palette is optional (defaults to red).
+$downwind-warn: mat.define-palette(mat.$red-palette);
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$downwind-theme: mat.define-light-theme( ( color: ( primary: $downwind-primary, accent: $downwind-accent, warn: $downwind-warn, ), ));
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($downwind-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/*
+    2. Remove default margin
+  */
+
+* {
+    margin: 0;
+}
+
+
+/*
+    3. Allow percentage-based heights in the application
+  */
+
+html,
+body {
+    height: 100%;
+}
+
+
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/*
+    6. Improve media defaults
+  */
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+
+/*
+    7. Remove built-in form typography styles
+  */
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/*
+    8. Avoid text overflows
+  */
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+
+/*
+    9. Create a root stacking context
+  */
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+.mat-drawer-backdrop.mat-drawer-shown {
+    background-color: rgba(0, 0, 0, 0) !important;
+}

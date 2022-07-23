@@ -1,0 +1,30 @@
+$primary-color: #265ded;
+.wrapper {
+    border: 2px solid #dfdfdf;
+    background: #dfdfdf;
+    height: 50px;
+    width: 300px;
+    margin: 0;
+    padding: 7px 8px;
+    color: inherit;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    transition: all 0.14s ease;
+    input {
+        background-color: transparent;
+        border: none;
+        margin-left: 0.6em;
+    }
+    input:focus {
+        border: none !important;
+        outline: none;
+    }
+    img {
+        transform: scale(80%);
+    }
+}
+
+.wrapper.active {
+    border: 2px solid $primary-color;
+}

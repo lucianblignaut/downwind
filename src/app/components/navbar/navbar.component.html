@@ -1,0 +1,25 @@
+<header [ngClass]="{'handset' : this.isHandset}">
+    <nav>
+        <img routerLink="/" src="../../../assets/images/Downwind Logo 2.svg" alt="downwind logo" class="logo">
+        <div class="nav-items">
+            <ul>
+                <li [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active-nav-link" routerLink="/map">
+                    Map
+                </li>
+                <li [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active-nav-link" routerLink="/airports">
+                    Airports</li>
+                <li [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active-nav-link" routerLink="/aircraft">
+                    Aircraft</li>
+                <li [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active-nav-link" routerLink="/about">
+                    About</li>
+            </ul>
+            <app-searchbar></app-searchbar>
+            <div class="nav-buttons">
+                <button class="login">Login</button>
+                <button class="signup">Sign Up</button>
+            </div>
+        </div>
+        <img *ngIf="!this.sidenavOpened && this.isHandset" (click)="openNav()" class="burger" src="../../../assets/images/burger-menu.svg" alt="mobile menu">
+        <img *ngIf="this.sidenavOpened && this.isHandset" (click)="closeNav()" class="close" src="../../../assets/images/close.svg" alt="close mobile menu">
+    </nav>
+</header>
