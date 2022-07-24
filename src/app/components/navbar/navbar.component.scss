@@ -1,13 +1,22 @@
 @use '../../../global-variables';
-.login {
+.nav-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.login,
+.signup {
     height: 45px;
     width: 120px;
-    border: 1px solid global-variables.$primary-blue;
     border-radius: 7px;
-    color: global-variables.$primary-blue;
-    background-color: transparent;
     transition: transform 0.15s ease;
     font-weight: 500;
+}
+
+.login {
+    border: 1px solid global-variables.$primary-blue;
+    color: global-variables.$primary-blue;
+    background-color: transparent;
     margin-right: 8px;
     margin-left: 16px;
     &:hover {
@@ -19,20 +28,10 @@
     }
 }
 
-.nav-buttons {
-    display: flex;
-    flex-wrap: nowrap;
-}
-
 .signup {
-    height: 45px;
-    width: 120px;
     border: 1px solid global-variables.$primary-blue;
-    border-radius: 7px;
     background-color: global-variables.$primary-blue;
     color: global-variables.$font-white;
-    transition: transform 0.15s ease;
-    font-weight: 500;
     margin-left: 8px;
     &:hover {
         background-color: global-variables.$primary-blue-darker;
@@ -45,7 +44,7 @@
 
 header {
     z-index: 10;
-    height: 60px;
+    height: 80px;
     width: 100%;
     transition: all 0.2s ease;
 }
@@ -114,5 +113,9 @@ ul {
 header.handset {
     .nav-items {
         display: none;
+    }
+    .close {
+        position: relative;
+        left: 6px;
     }
 }
