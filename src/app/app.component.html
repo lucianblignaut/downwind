@@ -1,6 +1,8 @@
-<app-navbar (openSidenav)="openSidenav($event)"></app-navbar>
-<mat-sidenav-container>
-    <mat-sidenav [(opened)]="openNav" mode="over" position="end">Sidenav content</mat-sidenav>
+<app-navbar [hideShadow]="!openNav" (openSidenav)="openSidenav($event)"></app-navbar>
+<mat-sidenav-container [ngClass]="{'opened': openNav}">
+    <mat-sidenav [(opened)]="openNav" mode="over" position="end">
+    </mat-sidenav>
     <mat-sidenav-content>
+        <!-- main content comes here -->
     </mat-sidenav-content>
 </mat-sidenav-container>

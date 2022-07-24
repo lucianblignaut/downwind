@@ -48,7 +48,14 @@ header {
     z-index: 10;
     height: 80px;
     width: 100%;
+    transition: all 0.2s ease;
+}
+
+header.opened {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    z-index: 10;
+    height: 80px;
+    width: 100%;
 }
 
 nav {
