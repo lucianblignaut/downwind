@@ -1,0 +1,32 @@
+@use '../../../global-variables';
+.wrapper {
+    z-index: 100;
+    border: 2px solid global-variables.$primary-light-gray;
+    background: transparent;
+    height: 50px;
+    width: 100%;
+    margin-top: 0.5em;
+    padding: 7px 8px;
+    color: inherit;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    transition: all 0.14s ease;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    input {
+        background-color: transparent;
+        border: none;
+        margin-left: 0.6em;
+    }
+    input:focus {
+        border: none !important;
+        outline: none;
+    }
+    img {
+        transform: scale(80%);
+    }
+}
+
+.wrapper.active {
+    border: 2px solid global-variables.$primary-blue;
+}

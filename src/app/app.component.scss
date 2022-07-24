@@ -6,3 +6,7 @@ mat-sidenav-container {
     height: calc(100% - 80px);
     z-index: -1;
 }
+
+mat-sidenav-container.opened {
+    z-index: 0;
+}
