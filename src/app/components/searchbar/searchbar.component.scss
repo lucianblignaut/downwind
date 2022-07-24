@@ -1,7 +1,7 @@
-$primary-color: #265ded;
+@use '../../../global-variables';
 .wrapper {
-    border: 2px solid #dfdfdf;
-    background: #dfdfdf;
+    border: 2px solid global-variables.$primary-light-gray;
+    background: global-variables.$primary-light-gray;
     height: 50px;
     width: 300px;
     margin: 0;
@@ -26,5 +26,5 @@ $primary-color: #265ded;
 }
 
 .wrapper.active {
-    border: 2px solid $primary-color;
+    border: 2px solid global-variables.$primary-blue;
 }

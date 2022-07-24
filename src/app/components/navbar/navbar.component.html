@@ -1,4 +1,4 @@
-<header [ngClass]="{'handset' : this.isHandset}">
+<header [ngClass]="{'handset' : this.isHandset, 'opened': hideShadow}">
     <nav>
         <img routerLink="/" src="../../../assets/images/Downwind Logo 2.svg" alt="downwind logo" class="logo">
         <div class="nav-items">
@@ -19,7 +19,7 @@
                 <button class="signup">Sign Up</button>
             </div>
         </div>
-        <img *ngIf="!this.sidenavOpened && this.isHandset" (click)="openNav()" class="burger" src="../../../assets/images/burger-menu.svg" alt="mobile menu">
+        <img *ngIf="!this.sidenavOpened && this.isHandset" (click)="openNav()" class="burger" src="../../../assets/images/burger-menu.svg" alt="open mobile menu">
         <img *ngIf="this.sidenavOpened && this.isHandset" (click)="closeNav()" class="close" src="../../../assets/images/close.svg" alt="close mobile menu">
     </nav>
 </header>
