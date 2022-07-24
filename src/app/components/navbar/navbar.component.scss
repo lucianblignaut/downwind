@@ -86,6 +86,14 @@ nav {
     width: 80%;
 }
 
+svg {
+    fill: rgb(117, 117, 117);
+    transition: fill 0.15s ease;
+    &:hover {
+        fill: global-variables.$primary-blue;
+    }
+}
+
 ul {
     display: flex;
     align-items: center;
