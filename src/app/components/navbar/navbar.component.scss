@@ -1,6 +1,6 @@
 @use '../../../global-variables';
 .login {
-    height: 50px;
+    height: 45px;
     width: 120px;
     border: 1px solid global-variables.$primary-blue;
     border-radius: 7px;
@@ -25,7 +25,7 @@
 }
 
 .signup {
-    height: 50px;
+    height: 45px;
     width: 120px;
     border: 1px solid global-variables.$primary-blue;
     border-radius: 7px;
@@ -45,7 +45,7 @@
 
 header {
     z-index: 10;
-    height: 80px;
+    height: 60px;
     width: 100%;
     transition: all 0.2s ease;
 }
