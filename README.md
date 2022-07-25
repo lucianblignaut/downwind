@@ -10,3 +10,7 @@ https://lucianblignaut.atlassian.net/jira/software/projects/DOW/boards/1
 
 https://www.figma.com/file/gZTGMyBDsYYCdWHlulHJW2/Untitled?node-id=36%3A135
 
+# Noteworthy Commands
+
+npm install @types/google.maps
+npm i @googlemaps/js-api-loader
