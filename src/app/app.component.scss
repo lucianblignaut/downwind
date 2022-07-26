@@ -4,7 +4,7 @@ mat-sidenav {
 
 mat-sidenav-container {
     height: calc(100% - 80px);
-    z-index: -1;
+    z-index: 0;
 }
 
 mat-sidenav-container.opened {
