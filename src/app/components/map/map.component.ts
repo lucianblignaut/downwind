@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Loader } from '@googlemaps/js-api-loader';
 import { MapStyles } from '../../../google-maps-style';
 
 @Component({
@@ -9,30 +8,24 @@ import { MapStyles } from '../../../google-maps-style';
 })
 export class MapComponent implements OnInit {
 
-  private map: google.maps.Map
+  center: google.maps.LatLngLiteral = { lat: -28.6082440450656, lng: 24.345254527347915 }
+
+  options: google.maps.MapOptions = {
+    zoom: 5,
+    center: this.center,
+    zoomControl: false,
+    disableDefaultUI: true,
+    minZoom: 5,
+  }
 
   constructor() { }
 
   ngOnInit(): void {
-    let loader = new Loader({
-      apiKey: 'AIzaSyCCGkw6KXi5L0zABcEk00I3al4YqrO2sco'
-    })
-
-    loader.load().then(() => {
-      console.log('loaded map')
-      const location = { lat: -30.5595, lng: 22.9375 }
-      this.map = new google.maps.Map(document.getElementById('map'), {
-        center: location,
-        zoom: 6,
-        minZoom: 6,
-        styles: MapStyles[0],
-        zoomControl: false,
-        mapTypeControl: false,
-        scaleControl: true,
-        streetViewControl: false,
-        rotateControl: false,
-        fullscreenControl: false
-      })
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.center = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      }
     })
   }
 
