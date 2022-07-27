@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ADSBExchangeAircraft } from 'src/app/models/ADSBExchangeAircraft.model';
 import { AdsbService } from 'src/app/services/adsb-exchange/adsb-service.service';
+import { Store } from '@ngrx/store'
+import * as MapActions from './state/map.actions'
+import * as fromMapState from './state/map.state'
 import { MapStyles } from '../../../google-maps-style';
+import { Observable, take } from 'rxjs';
 
 @Component({
   selector: 'app-map',
@@ -10,32 +14,44 @@ import { MapStyles } from '../../../google-maps-style';
 })
 export class MapComponent implements OnInit {
 
-  aircraft: ADSBExchangeAircraft[] = []
+  @ViewChild('map') map: google.maps.Map
+  aircraft$: Observable<ADSBExchangeAircraft[]> = this.store.select(fromMapState.selectAircraft)
+  center$: Observable<google.maps.LatLngLiteral> = this.store.select(fromMapState.selectMapCenter)
 
-  center: google.maps.LatLngLiteral = { lat: -28.6082440450656, lng: 24.345254527347915 }
-
+  //options for the Maps API
   options: google.maps.MapOptions = {
     zoom: 5,
-    center: this.center,
     zoomControl: false,
     disableDefaultUI: true,
     minZoom: 4,
   }
 
-  constructor(private adsb: AdsbService) { }
+  constructor(private adsb: AdsbService, private store: Store) { }
 
   ngOnInit(): void {
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.center = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
+    this.store.dispatch(MapActions.enter())
+  }
+
+  onclicked(ac) {
+    this.store.dispatch(MapActions.selectAircraft({ aircraft: ac }))
+  }
+
+  onMapClick() {
+    //deselect aircraft if one has been selected already
+    this.store.select(fromMapState.selectActiveAircraft).pipe(take(1)).subscribe(aircraft => {
+      if (aircraft) {
+        this.store.dispatch(MapActions.deselectAircraft())
       }
     })
+  }
 
-    this.adsb.loadMockAircraft().subscribe(res => {
-      this.aircraft = [...res]
-      console.log(this.aircraft);
-    })
+  onDragEnd() {
+    this.store.dispatch(MapActions.loadCenter({
+      mapCenter: {
+        lat: this.map.getCenter().lat(),
+        lng: this.map.getCenter().lng()
+      }
+    }))
   }
 
 }

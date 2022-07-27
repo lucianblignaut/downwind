@@ -33,6 +33,9 @@ section {
                 font-weight: 500;
                 font-size: 1.3rem;
             }
+            li.active-nav-link {
+                color: #265ded !important;
+            }
         }
     }
     .login,

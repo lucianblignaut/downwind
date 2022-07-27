@@ -70,8 +70,26 @@ export class AdsbService {
     return (distanceInNm / 2).toFixed(0)
   }
 
+  /**
+   * Used to get the location of the browser and detect where the map center is.
+   * @returns center of the map in a latitude and longitude pair
+   */
+  loadCenter(): Observable<{ lat: number, lng: number }> {
+    return new Observable((observer) => {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const center = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        }
+        observer.next(center)
+        observer.complete()
+      })
+    })
+  }
+
   loadMockAircraft() {
     return this.http.get<ADSBExchangeAircraft[]>('assets/data/mockAircraft.json')
   }
+
 
 }
