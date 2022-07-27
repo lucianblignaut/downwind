@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Loader } from '@googlemaps/js-api-loader';
+import { ADSBExchangeAircraft } from 'src/app/models/ADSBExchangeAircraft.model';
+import { AdsbService } from 'src/app/services/adsb-exchange/adsb-service.service';
 import { MapStyles } from '../../../google-maps-style';
 
 @Component({
@@ -9,30 +10,31 @@ import { MapStyles } from '../../../google-maps-style';
 })
 export class MapComponent implements OnInit {
 
-  private map: google.maps.Map
+  aircraft: ADSBExchangeAircraft[] = []
 
-  constructor() { }
+  center: google.maps.LatLngLiteral = { lat: -28.6082440450656, lng: 24.345254527347915 }
+
+  options: google.maps.MapOptions = {
+    zoom: 5,
+    center: this.center,
+    zoomControl: false,
+    disableDefaultUI: true,
+    minZoom: 4,
+  }
+
+  constructor(private adsb: AdsbService) { }
 
   ngOnInit(): void {
-    let loader = new Loader({
-      apiKey: 'AIzaSyCCGkw6KXi5L0zABcEk00I3al4YqrO2sco'
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.center = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      }
     })
 
-    loader.load().then(() => {
-      console.log('loaded map')
-      const location = { lat: -30.5595, lng: 22.9375 }
-      this.map = new google.maps.Map(document.getElementById('map'), {
-        center: location,
-        zoom: 6,
-        minZoom: 6,
-        styles: MapStyles[0],
-        zoomControl: false,
-        mapTypeControl: false,
-        scaleControl: true,
-        streetViewControl: false,
-        rotateControl: false,
-        fullscreenControl: false
-      })
+    this.adsb.loadMockAircraft().subscribe(res => {
+      this.aircraft = [...res]
+      console.log(this.aircraft);
     })
   }
 

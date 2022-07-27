@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MobileNavComponent } from './components/mobile-nav/mobile-nav.component';
 import { MobileNavModule } from './components/mobile-nav/mobile-nav.module';
 import { MapModule } from './components/map/map.module';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MapModule } from './components/map/map.module';
     BrowserAnimationsModule,
     NavbarModule,
     MobileNavModule,
-    MapModule
+    MapModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
