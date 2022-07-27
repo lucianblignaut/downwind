@@ -18,7 +18,7 @@ export interface CalculateRadiusParams {
 @Injectable({
   providedIn: 'root'
 })
-export class AdsbServiceService {
+export class AdsbService {
 
   constructor(private http: HttpClient) { }
   /**

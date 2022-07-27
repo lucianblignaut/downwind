@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ADSBExchangeAircraft } from 'src/app/models/ADSBExchangeAircraft.model';
+import { AdsbService } from 'src/app/services/adsb-exchange/adsb-service.service';
 import { MapStyles } from '../../../google-maps-style';
 
 @Component({
@@ -8,6 +10,8 @@ import { MapStyles } from '../../../google-maps-style';
 })
 export class MapComponent implements OnInit {
 
+  aircraft: ADSBExchangeAircraft[] = []
+
   center: google.maps.LatLngLiteral = { lat: -28.6082440450656, lng: 24.345254527347915 }
 
   options: google.maps.MapOptions = {
@@ -15,10 +19,10 @@ export class MapComponent implements OnInit {
     center: this.center,
     zoomControl: false,
     disableDefaultUI: true,
-    minZoom: 5,
+    minZoom: 4,
   }
 
-  constructor() { }
+  constructor(private adsb: AdsbService) { }
 
   ngOnInit(): void {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -26,6 +30,11 @@ export class MapComponent implements OnInit {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       }
+    })
+
+    this.adsb.loadMockAircraft().subscribe(res => {
+      this.aircraft = [...res]
+      console.log(this.aircraft);
     })
   }
 
