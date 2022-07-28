@@ -1,10 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ADSBExchangeAircraft } from 'src/app/models/ADSBExchangeAircraft.model';
-import { AdsbService } from 'src/app/services/adsb-exchange/adsb-service.service';
 import { Store } from '@ngrx/store'
 import * as MapActions from './state/map.actions'
 import * as fromMapState from './state/map.state'
-import { MapStyles } from '../../../google-maps-style';
 import { Observable, take } from 'rxjs';
 
 @Component({
@@ -17,6 +15,7 @@ export class MapComponent implements OnInit {
   @ViewChild('map') map: google.maps.Map
   aircraft$: Observable<ADSBExchangeAircraft[]> = this.store.select(fromMapState.selectAircraft)
   center$: Observable<google.maps.LatLngLiteral> = this.store.select(fromMapState.selectMapCenter)
+  isAircraftLoading: boolean
 
   //options for the Maps API
   options: google.maps.MapOptions = {
@@ -26,13 +25,18 @@ export class MapComponent implements OnInit {
     minZoom: 4,
   }
 
-  constructor(private adsb: AdsbService, private store: Store) { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
     this.store.dispatch(MapActions.enter())
+    this.store.select(fromMapState.selectAircraftLoading).subscribe(il => this.isAircraftLoading = il)
   }
 
-  onclicked(ac) {
+  onTilesLoaded() {
+    this.dispatchLoadBounds()
+  }
+
+  onMarkerClick(ac) {
     this.store.dispatch(MapActions.selectAircraft({ aircraft: ac }))
   }
 
@@ -46,6 +50,23 @@ export class MapComponent implements OnInit {
   }
 
   onDragEnd() {
+    this.dispatchLoadCenter()
+    this.dispatchLoadBounds()
+  }
+
+  dispatchLoadBounds() {
+    const ne = this.map.getBounds()?.getNorthEast()
+    const sw = this.map.getBounds()?.getSouthWest()
+
+    this.store.dispatch(MapActions.loadBounds({
+      bounds: {
+        NE: { lat: ne.lat(), lng: ne.lng() },
+        SW: { lat: sw.lat(), lng: sw.lng() }
+      }
+    }))
+  }
+
+  dispatchLoadCenter() {
     this.store.dispatch(MapActions.loadCenter({
       mapCenter: {
         lat: this.map.getCenter().lat(),
