@@ -28,3 +28,4 @@ export const selectActiveAircraft = createSelector(selectMapState, fromMap.activ
 export const selectAircraftLoading = createSelector(selectMapState, fromMap.aircraftLoading)
 export const selectMapCenter = createSelector(selectMapState, fromMap.mapCenter)
 export const selectAircraftError = createSelector(selectMapState, fromMap.apiError)
+export const selectMapBounds = createSelector(selectMapState, fromMap.mapBounds)

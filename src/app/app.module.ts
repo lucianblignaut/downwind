@@ -2,24 +2,22 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NavbarModule } from './components/navbar/navbar.module';
 import { AppRoutingModule } from './app-routing.module';
-
-import { AppComponent } from './app.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MobileNavComponent } from './components/mobile-nav/mobile-nav.component';
 import { MobileNavModule } from './components/mobile-nav/mobile-nav.module';
 import { MapModule } from './components/map/map.module';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment'
 import { MapStateFeatureModule } from './components/map/state/map.state';
 import { EffectsModule } from '@ngrx/effects';
+
+import { AppComponent } from './app.component';
+import { environment } from '../environments/environment'
 import { MapEffects } from './components/map/state/map.effects';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MobileNavComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +27,6 @@ import { MapEffects } from './components/map/state/map.effects';
     MobileNavModule,
     MapModule,
     HttpClientModule,
-    MapStateFeatureModule,
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([MapEffects])
