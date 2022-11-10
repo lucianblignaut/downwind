@@ -1,78 +1,35 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ADSBExchangeAircraft } from 'src/app/models/ADSBExchangeAircraft.model';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store'
-import * as MapActions from './state/map.actions'
-import * as fromMapState from './state/map.state'
-import { Observable, take } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
+//the windyInit function used by the Windy API to setup the leaflet map
+declare function windyInit(options, callback): void;
+//assuming that an import to leaflet exists already to avoid type errors
+declare let L: any;
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit {
-
-  @ViewChild('map') map: google.maps.Map
-  aircraft$: Observable<ADSBExchangeAircraft[]> = this.store.select(fromMapState.selectAircraft)
-  center$: Observable<google.maps.LatLngLiteral> = this.store.select(fromMapState.selectMapCenter)
-  isAircraftLoading: boolean
-
-  //options for the Maps API
-  options: google.maps.MapOptions = {
-    zoom: 5,
-    zoomControl: false,
-    disableDefaultUI: true,
-    minZoom: 4,
-  }
-
+export class MapComponent implements OnInit, AfterViewInit {
   constructor(private store: Store) { }
 
+  private map: any;
+
+  private initMap(): void {
+    windyInit({ key: environment.WINDY_API_KEY, verbose: true }, (windyAPI: any) => {
+      this.map = windyAPI.map
+    });
+  }
+
   ngOnInit(): void {
-    this.store.dispatch(MapActions.enter())
-    this.store.select(fromMapState.selectAircraftLoading).subscribe(il => this.isAircraftLoading = il)
+    // this.store.dispatch(MapActions.enter())
+    // this.store.select(fromMapState.selectAircraftLoading).subscribe(il => this.isAircraftLoading = il)
   }
-
-  onTilesLoaded() {
-    this.dispatchLoadBounds()
+  ngAfterViewInit(): void {
+    this.initMap()
   }
-
-  onMarkerClick(ac) {
-    this.store.dispatch(MapActions.selectAircraft({ aircraft: ac }))
-  }
-
-  onMapClick() {
-    //deselect aircraft if one has been selected already
-    this.store.select(fromMapState.selectActiveAircraft).pipe(take(1)).subscribe(aircraft => {
-      if (aircraft) {
-        this.store.dispatch(MapActions.deselectAircraft())
-      }
-    })
-  }
-
-  onDragEnd() {
-    this.dispatchLoadCenter()
-    this.dispatchLoadBounds()
-  }
-
-  dispatchLoadBounds() {
-    const ne = this.map.getBounds()?.getNorthEast()
-    const sw = this.map.getBounds()?.getSouthWest()
-
-    this.store.dispatch(MapActions.loadBounds({
-      bounds: {
-        NE: { lat: ne.lat(), lng: ne.lng() },
-        SW: { lat: sw.lat(), lng: sw.lng() }
-      }
-    }))
-  }
-
-  dispatchLoadCenter() {
-    this.store.dispatch(MapActions.loadCenter({
-      mapCenter: {
-        lat: this.map.getCenter().lat(),
-        lng: this.map.getCenter().lng()
-      }
-    }))
-  }
-
 }
+
+
