@@ -84,6 +84,10 @@ section {
         a:hover {
             cursor: pointer;
         }
+        a {
+            width: 24px;
+            height: 24px;
+        }
         svg {
             fill: rgb(117, 117, 117);
         }
