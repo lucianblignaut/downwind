@@ -50,7 +50,7 @@ header {
 }
 
 header.opened {
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(40, 40, 44, 0.404) 0px 7px 29px 0px;
     z-index: 10;
     height: 80px;
     width: 100%;
@@ -65,6 +65,7 @@ nav {
     align-items: center;
     img.logo {
         height: 50px;
+        margin-bottom: 6px;
         &:hover {
             cursor: pointer;
         }

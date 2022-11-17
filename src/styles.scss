@@ -143,3 +143,7 @@ app-navbar {
 a#logo {
     display: none;
 }
+
+.leaflet-tile {
+    filter: brightness(70%);
+}

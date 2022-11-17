@@ -1,0 +1,13 @@
+#map {
+    width: 100%;
+    height: calc(100vh - 80px);
+}
+
+.overlay {
+    width: 100%;
+    height: calc(100vh - 80px);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.171);
+    z-index: 4000;
+    pointer-events: none;
+}
