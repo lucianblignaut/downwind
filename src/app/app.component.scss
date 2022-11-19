@@ -3,7 +3,12 @@ mat-sidenav {
 }
 
 mat-sidenav-container {
-    height: calc(100% - 80px);
+    height: calc(100vh - 75px);
+    z-index: 0;
+}
+
+mat-sidenav-container.mobile {
+    height: calc(100vh - 61px);
     z-index: 0;
 }
 

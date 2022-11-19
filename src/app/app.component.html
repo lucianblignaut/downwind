@@ -1,5 +1,5 @@
-<app-navbar [hideShadow]="!openNav" (openSidenav)="openSidenav($event)"></app-navbar>
-<mat-sidenav-container [ngClass]="{'opened': openNav}">
+<app-navbar [hideShadow]="!openNav" (openSidenav)="openSidenav($event)" (handset)="isHandset($event)"></app-navbar>
+<mat-sidenav-container data-testid="sidenav-container" [ngClass]="{'opened': openNav, 'mobile' : isMobile}">
     <mat-sidenav [(opened)]="openNav" mode="over" position="end">
         <app-mobile-nav></app-mobile-nav>
     </mat-sidenav>

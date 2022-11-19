@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,12 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
   }
   openNav = false
+  isMobile = false
+
   openSidenav(value: boolean) {
     this.openNav = value
+  }
+  isHandset(value: boolean) {
+    this.isMobile = value
   }
 }
