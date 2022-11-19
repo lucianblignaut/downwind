@@ -1,3 +1,4 @@
+@use '../../../global-variables';
 #map {
     width: 100%;
     height: 100%;
@@ -10,4 +11,34 @@
     background-color: rgba(0, 0, 0, 0.171);
     z-index: 4000;
     pointer-events: none;
+}
+
+.hover-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 8000;
+    pointer-events: none;
+}
+
+#hover-menu {
+    box-shadow: rgba(0, 0, 0, 0.267) 0px 5px 15px;
+    width: 90%;
+    height: 50px;
+    border: none;
+    border-radius: 7px;
+    background-color: global-variables.$font-white;
+    position: absolute;
+    margin-bottom: 20px;
+    pointer-events: all;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    img,
+    a img:hover {
+        cursor: pointer;
+    }
 }

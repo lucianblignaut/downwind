@@ -146,5 +146,9 @@ a#logo {
 }
 
 .leaflet-tile {
-    filter: brightness(70%);
+    filter: brightness(80%);
+}
+
+.leaflet-control-attribution {
+    visibility: hidden;
 }

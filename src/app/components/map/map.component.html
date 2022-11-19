@@ -1,2 +1,9 @@
-<!-- <div class="overlay"></div> -->
+<div class="hover-wrapper">
+    <div *ngIf="isHandset$ | async" id="hover-menu">
+        <a style="height: 30px;"><img src="../../../assets/images/Cloud Lightning.svg" alt="Weather"></a>
+        <a style="height: 30px;"><img src="../../../assets/images/Bookmark.svg" alt="Favourites"></a>
+        <a style="height: 30px;"><img src="../../../assets/images/Mail.svg" alt="Notifications"></a>
+        <img src="../../../assets/images/GPS.svg" alt="Map Center">
+    </div>
+</div>
 <div id="map"></div>

@@ -121,4 +121,11 @@ header.handset {
         left: 6px;
     }
     height: 61px;
+    img.logo {
+        max-height: 44px;
+    }
+    img.burger,
+    img.close {
+        max-height: 40px;
+    }
 }

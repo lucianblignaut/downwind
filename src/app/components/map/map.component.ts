@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store'
 import { AdsbService } from 'src/app/services/adsb-exchange/adsb-service.service';
+import { BreakpointService } from 'src/app/services/breakpoint/breakpoint.service';
 
 //the windyInit function used by the Windy API to setup the leaflet map
 declare function windyInit(options, callback): void;
@@ -13,9 +14,11 @@ declare let L: any;
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit, AfterViewInit {
-  constructor(private store: Store, private adsb: AdsbService) { }
+  constructor(private store: Store, private adsb: AdsbService, private observer: BreakpointService) { }
 
   private windyMap: any;
+
+  public isHandset$ = this.observer.handset$
 
   private initMap(): void {
     this.adsb.loadCenter().subscribe((center) => {
