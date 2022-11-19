@@ -7,7 +7,7 @@
 .login,
 .signup {
     height: 45px;
-    width: 120px;
+    width: 105px;
     border-radius: 7px;
     transition: transform 0.15s ease;
     font-weight: 500;
@@ -44,20 +44,21 @@
 
 header {
     z-index: 10;
-    height: 80px;
+    height: 75px;
     width: 100%;
     transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
 }
 
 header.opened {
     box-shadow: rgba(40, 40, 44, 0.404) 0px 7px 29px 0px;
     z-index: 10;
-    height: 80px;
+    // height: 61px;
     width: 100%;
 }
 
 nav {
-    height: 80px;
     width: 90%;
     margin: auto;
     display: flex;
@@ -119,4 +120,5 @@ header.handset {
         position: relative;
         left: 6px;
     }
+    height: 61px;
 }

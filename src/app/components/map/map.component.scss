@@ -1,11 +1,11 @@
 #map {
     width: 100%;
-    height: calc(100vh - 80px);
+    height: 100%;
 }
 
 .overlay {
     width: 100%;
-    height: calc(100vh - 80px);
+    height: 100%;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.171);
     z-index: 4000;

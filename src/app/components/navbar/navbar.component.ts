@@ -13,6 +13,8 @@ export class NavbarComponent implements OnInit {
   sidenavOpened = false
   //will emit true if sidenav should be opened and false if it should be closed
   @Output() openSidenav = new EventEmitter<boolean>()
+
+  @Output() handset = new EventEmitter<boolean>()
   //will remove the header shadow if the sidenav is opened
   @Input() hideShadow: boolean = false
   constructor(private responsive: BreakpointObserver) { }
@@ -22,12 +24,14 @@ export class NavbarComponent implements OnInit {
     this.responsive.observe(['(max-width: 1194px)']).subscribe((result: BreakpointState) => {
       if (result.matches) {
         this.isHandset = true
+        this.handset.emit(true)
       }
     })
     //listen for the viewport becoming larger than 1194px
     this.responsive.observe(['(min-width: 1194px)']).subscribe((result: BreakpointState) => {
       if (result.matches) {
         this.isHandset = false
+        this.handset.emit(false)
       }
     })
   }
