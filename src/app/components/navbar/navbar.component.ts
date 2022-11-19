@@ -1,5 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { BreakpointService } from 'src/app/services/breakpoint/breakpoint.service';
 
 @Component({
   selector: 'app-navbar',
@@ -17,22 +18,13 @@ export class NavbarComponent implements OnInit {
   @Output() handset = new EventEmitter<boolean>()
   //will remove the header shadow if the sidenav is opened
   @Input() hideShadow: boolean = false
-  constructor(private responsive: BreakpointObserver) { }
+  constructor(private breakpoint: BreakpointService) { }
 
   ngOnInit(): void {
     //listen for the viewport becoming smaller than 1194px
-    this.responsive.observe(['(max-width: 1194px)']).subscribe((result: BreakpointState) => {
-      if (result.matches) {
-        this.isHandset = true
-        this.handset.emit(true)
-      }
-    })
-    //listen for the viewport becoming larger than 1194px
-    this.responsive.observe(['(min-width: 1194px)']).subscribe((result: BreakpointState) => {
-      if (result.matches) {
-        this.isHandset = false
-        this.handset.emit(false)
-      }
+    this.breakpoint.handset$.subscribe((result: boolean) => {
+      this.isHandset = result
+      this.handset.emit(result)
     })
   }
 
