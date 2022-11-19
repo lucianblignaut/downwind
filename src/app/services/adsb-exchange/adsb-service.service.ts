@@ -72,14 +72,14 @@ export class AdsbService {
 
   /**
    * Used to get the location of the browser and detect where the map center is.
-   * @returns center of the map in a latitude and longitude pair
+   * @returns center of the map in a latitude and longitude pair [lat, lng]
    */
   loadCenter(): Observable<{ lat: number, lng: number }> {
     return new Observable((observer) => {
       navigator.geolocation.getCurrentPosition((position) => {
         const center = {
           lat: position.coords.latitude,
-          lng: position.coords.longitude,
+          lng: position.coords.longitude
         }
         observer.next(center)
         observer.complete()
