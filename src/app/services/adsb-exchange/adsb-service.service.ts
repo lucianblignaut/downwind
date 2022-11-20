@@ -1,18 +1,18 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { LatLngLiteral } from 'leaflet';
 import { Observable } from 'rxjs';
 import { ADSBExchangeAircraft } from 'src/app/models/ADSBExchangeAircraft.model';
 import { ADSBExchangeResponse } from 'src/app/models/ADSBExchangeResponse.model';
 
 export interface CalculateRadiusParams {
-  leftCoords: {
-    lat: number
-    long: number
-  }
-  rightCoords: {
-    lat: number
-    long: number
-  }
+  center: LatLngLiteral
+  corner: LatLngLiteral
+}
+
+export enum Units {
+  KM = 'km',
+  NM = 'nm'
 }
 
 @Injectable({
@@ -45,29 +45,29 @@ export class AdsbService {
   }
 
   /**
-   * Calculates the distance (in Km) between two coordinates and the resulting radius (in NM) to search
-   * using Haversine formula
-   * @param coords the coordinate pairs to calculate the distance between
+   * Calculates the distance (in Km or Nm) between two coordinates and the resulting radius to search
+    * using Haversine formula
+   * @param coords 
+   * @param unit 
+   * @returns 
    */
-  calculateRadiusToSearch(coords: CalculateRadiusParams): string {
-    //1. find the distance between the two coordinates
-    const leftLatRadians = coords.leftCoords.lat / (180 / Math.PI)
-    const leftLongRadians = coords.leftCoords.long / (180 / Math.PI)
-    const rightLatRadians = coords.rightCoords.lat / (180 / Math.PI)
-    const rightLongRadians = coords.rightCoords.long / (180 / Math.PI)
+  calculateRadiusToSearch(coords: CalculateRadiusParams, unit: Units.KM | Units.NM): number {
+    // //1. find the distance between the two coordinates
+    const leftLatRadians = coords.center.lat / (180 / Math.PI)
+    const leftLongRadians = coords.center.lng / (180 / Math.PI)
+    const rightLatRadians = coords.corner.lat / (180 / Math.PI)
+    const rightLongRadians = coords.corner.lng / (180 / Math.PI)
 
     const earthRadiusInKm = 6378
-
     const distanceInKm = earthRadiusInKm * Math.acos((Math.sin(leftLatRadians) * Math.sin(rightLatRadians)) +
       Math.cos(leftLatRadians) * Math.cos(rightLatRadians) * Math.cos(rightLongRadians - leftLongRadians))
 
-    //2. convert to Nautical Miles
-    let distanceInNm = distanceInKm * 0.539957
-
-    //3. add 30% buffer to the distance
-    distanceInNm = distanceInNm * (1.3)
-    //4. return distance over 2 for the radius
-    return (distanceInNm / 2).toFixed(0)
+    if (unit === Units.NM) {
+      // //2. convert to Nautical Miles
+      let distanceInNm = distanceInKm * 0.539957
+      return distanceInNm
+    }
+    return distanceInKm
   }
 
   /**

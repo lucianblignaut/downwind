@@ -2,15 +2,14 @@ import { ADSBExchangeAircraft } from "src/app/models/ADSBExchangeAircraft.model"
 import { createReducer, on } from '@ngrx/store'
 import { HttpErrorResponse } from "@angular/common/http";
 import * as MapActions from './map.actions'
-import { MapBounds } from "src/app/models/mapBounds.model";
-
+import { LatLngLiteral, LatLngBounds } from "leaflet";
 
 export interface MapState {
     aircraft: ADSBExchangeAircraft[],
     activeAircraft: ADSBExchangeAircraft | null,
     aircraftLoading: boolean,
-    mapCenter: { lat: number, lng: number } | null,
-    mapBounds: MapBounds,
+    mapCenter: LatLngLiteral | null,
+    mapBounds: LatLngBounds | null,
     adsbApiError: HttpErrorResponse
 }
 
