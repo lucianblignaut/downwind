@@ -12,14 +12,12 @@ export class BreakpointService {
   startObserve(): void {
     //listen for the viewport becoming smaller than 1194px
     this.observer.observe(['(max-width: 1194px)']).subscribe((result: BreakpointState) => {
-      console.log(result);
       if (result.matches) {
         this.handset$.next(true)
       }
     })
     //listen for the viewport becoming larger than 1194px
     this.observer.observe(['(min-width: 1194px)']).subscribe((result: BreakpointState) => {
-      console.log(result);
       if (result.matches) {
         this.handset$.next(false)
       }
