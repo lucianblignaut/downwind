@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  WINDY_API_KEY: 'OBMhz0mn3s2VgK4oPuYJo3dgyYjrRkCd'
+  WINDY_API_KEY: 'OBMhz0mn3s2VgK4oPuYJo3dgyYjrRkCd',
+  AIRPORT_DB_KEY: 'ca66293a0c9bc7e21115918da951e8df3c423983681f79bd8bc89a6a04c21e4d71fd4091668730fb3649cb34ab92738c'
 };
 
 /*

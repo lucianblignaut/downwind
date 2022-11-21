@@ -1,0 +1,547 @@
+[
+    [{
+            "iataCode": "SDB",
+            "icaoCode": "FALW",
+            "name": "Saldanha Bay Langebaanweg Afb",
+            "alpha2countryCode": "ZA",
+            "latitude": -32.9731,
+            "longitude": 18.1622
+        },
+        {
+            "iataCode": "CPT",
+            "icaoCode": "FACT",
+            "name": "Cape Town",
+            "alpha2countryCode": "ZA",
+            "latitude": -33.9647,
+            "longitude": 18.6017
+        },
+        {
+            "iataCode": "OVG",
+            "icaoCode": "FAOB",
+            "name": "Overberg Afb",
+            "alpha2countryCode": "ZA",
+            "latitude": -34.5667,
+            "longitude": 20.25
+        },
+        {
+            "iataCode": "ROD",
+            "icaoCode": "FARS",
+            "name": "Robertson",
+            "alpha2countryCode": "ZA",
+            "latitude": -33.7667,
+            "longitude": 19.8333
+        },
+        {
+            "iataCode": "VRE",
+            "icaoCode": "FAVR",
+            "name": "Vredendal",
+            "alpha2countryCode": "ZA",
+            "latitude": -31.6833,
+            "longitude": 18.5833
+        },
+        {
+            "iataCode": "MZY",
+            "icaoCode": "FAMO",
+            "name": "Mossel Bay",
+            "alpha2countryCode": "ZA",
+            "latitude": -34.1833,
+            "longitude": 22.1333
+        },
+        {
+            "iataCode": "OUH",
+            "icaoCode": "FAOH",
+            "name": "Oudtshoorn",
+            "alpha2countryCode": "ZA",
+            "latitude": -33.6025,
+            "longitude": 22.1883
+        },
+        {
+            "iataCode": "GRJ",
+            "icaoCode": "FAGG",
+            "name": "George",
+            "alpha2countryCode": "ZA",
+            "latitude": -34.0056,
+            "longitude": 22.3789
+        },
+        {
+            "iataCode": "PBZ",
+            "icaoCode": "FAPG",
+            "name": "Plettenberg Bay",
+            "alpha2countryCode": "ZA",
+            "latitude": -34.0881,
+            "longitude": 23.3267
+        },
+        {
+            "iataCode": "KIG",
+            "icaoCode": null,
+            "name": "Koingnaas",
+            "alpha2countryCode": "ZA",
+            "latitude": -30.2,
+            "longitude": 17.2667
+        },
+        {
+            "iataCode": "KLZ",
+            "icaoCode": "FAKZ",
+            "name": "Kleinsee",
+            "alpha2countryCode": "ZA",
+            "latitude": -29.6833,
+            "longitude": 17.0667
+        },
+        {
+            "iataCode": "AGZ",
+            "icaoCode": "FAAG",
+            "name": "Aggeneys",
+            "alpha2countryCode": "ZA",
+            "latitude": -29.2833,
+            "longitude": 18.8167
+        },
+        {
+            "iataCode": "SBU",
+            "icaoCode": "FASB",
+            "name": "Springbok",
+            "alpha2countryCode": "ZA",
+            "latitude": -29.6833,
+            "longitude": 17.95
+        },
+        {
+            "iataCode": "SIS",
+            "icaoCode": "FASS",
+            "name": "Sishen",
+            "alpha2countryCode": "ZA",
+            "latitude": -27.65,
+            "longitude": 23
+        },
+        {
+            "iataCode": "CDO",
+            "icaoCode": "FACD",
+            "name": "Cradock Paul Kruger",
+            "alpha2countryCode": "ZA",
+            "latitude": -32.1333,
+            "longitude": 25.6
+        },
+        {
+            "iataCode": "UTN",
+            "icaoCode": "FAUP",
+            "name": "Upington",
+            "alpha2countryCode": "ZA",
+            "latitude": -28.3992,
+            "longitude": 21.2603
+        },
+        {
+            "iataCode": "KIM",
+            "icaoCode": "FAKM",
+            "name": "Kimberley",
+            "alpha2countryCode": "ZA",
+            "latitude": -28.8028,
+            "longitude": 24.7653
+        },
+        {
+            "iataCode": "KMH",
+            "icaoCode": "FAKU",
+            "name": "Kuruman Johan Pienaar",
+            "alpha2countryCode": "ZA",
+            "latitude": -27.4667,
+            "longitude": 23.4167
+        },
+        {
+            "iataCode": "LMR",
+            "icaoCode": "FALC",
+            "name": "Lime Acres Finsch Mine",
+            "alpha2countryCode": "ZA",
+            "latitude": -28.3667,
+            "longitude": 23.45
+        },
+        {
+            "iataCode": "PRK",
+            "icaoCode": "FAPK",
+            "name": "Prieska",
+            "alpha2countryCode": "ZA",
+            "latitude": -29.6667,
+            "longitude": 22.7
+        },
+        {
+            "iataCode": "BFN",
+            "icaoCode": "FABL",
+            "name": "Bloemfontein",
+            "alpha2countryCode": "ZA",
+            "latitude": -29.0928,
+            "longitude": 26.3025
+        },
+        {
+            "iataCode": "SHK",
+            "icaoCode": "FXSH",
+            "name": "Sehonghong",
+            "alpha2countryCode": "LS",
+            "latitude": -29.7167,
+            "longitude": 28.7667
+        },
+        {
+            "iataCode": "SHZ",
+            "icaoCode": "FXSS",
+            "name": "Seshote",
+            "alpha2countryCode": "LS",
+            "latitude": -30.5833,
+            "longitude": 28
+        },
+        {
+            "iataCode": "SKQ",
+            "icaoCode": "FXSK",
+            "name": "Sekake",
+            "alpha2countryCode": "LS",
+            "latitude": -29.9667,
+            "longitude": 28.45
+        },
+        {
+            "iataCode": "SOK",
+            "icaoCode": "FXSM",
+            "name": "Semongkong",
+            "alpha2countryCode": "LS",
+            "latitude": -29.7333,
+            "longitude": 28.7667
+        },
+        {
+            "iataCode": "TCU",
+            "icaoCode": "FATN",
+            "name": "Thaba Nchu",
+            "alpha2countryCode": "ZA",
+            "latitude": -29.2833,
+            "longitude": 26.8667
+        },
+        {
+            "iataCode": "THB",
+            "icaoCode": "FXTA",
+            "name": "Thaba-Tseka",
+            "alpha2countryCode": "LS",
+            "latitude": -29.8667,
+            "longitude": 28.1667
+        },
+        {
+            "iataCode": "TKO",
+            "icaoCode": "FXTK",
+            "name": "Tlokoeng",
+            "alpha2countryCode": "LS",
+            "latitude": -29.2333,
+            "longitude": 28.8833
+        },
+        {
+            "iataCode": "UNE",
+            "icaoCode": "FXQN",
+            "name": "Qacha's Nek",
+            "alpha2countryCode": "LS",
+            "latitude": -30.1,
+            "longitude": 28.7
+        },
+        {
+            "iataCode": "UTG",
+            "icaoCode": "FXQG",
+            "name": "Quthing",
+            "alpha2countryCode": "LS",
+            "latitude": -30.5,
+            "longitude": 27.6
+        },
+        {
+            "iataCode": "UTT",
+            "icaoCode": "FAUT",
+            "name": "Umtata",
+            "alpha2countryCode": "ZA",
+            "latitude": -31.5478,
+            "longitude": 28.6742
+        },
+        {
+            "iataCode": "UTW",
+            "icaoCode": "FAQT",
+            "name": "Queenstown",
+            "alpha2countryCode": "ZA",
+            "latitude": -31.9167,
+            "longitude": 26.8833
+        },
+        {
+            "iataCode": "VRU",
+            "icaoCode": "FAVB",
+            "name": "Vryburg",
+            "alpha2countryCode": "ZA",
+            "latitude": -26.9833,
+            "longitude": 24.7333
+        },
+        {
+            "iataCode": "FCB",
+            "icaoCode": "FAFB",
+            "name": "Ficksburg",
+            "alpha2countryCode": "ZA",
+            "latitude": -28.825,
+            "longitude": 27.9083
+        },
+        {
+            "iataCode": "WEL",
+            "icaoCode": "FAWM",
+            "name": "Welkom",
+            "alpha2countryCode": "ZA",
+            "latitude": -28,
+            "longitude": 26.6667
+        },
+        {
+            "iataCode": "WKF",
+            "icaoCode": "FAWK",
+            "name": "Pretoria Waterkloof Afb",
+            "alpha2countryCode": "ZA",
+            "latitude": -25.83,
+            "longitude": 28.2225
+        },
+        {
+            "iataCode": "GCJ",
+            "icaoCode": "FAGC",
+            "name": "Johannesburg Grand Central Apt",
+            "alpha2countryCode": "ZA",
+            "latitude": -25.9864,
+            "longitude": 28.1403
+        },
+        {
+            "iataCode": "HBL",
+            "icaoCode": null,
+            "name": "Babelegi Heliport",
+            "alpha2countryCode": "ZA",
+            "latitude": -25.3833,
+            "longitude": 28.2833
+        },
+        {
+            "iataCode": "HCS",
+            "icaoCode": null,
+            "name": "Johannesburg Randburg H/P",
+            "alpha2countryCode": "ZA",
+            "latitude": -26.2528,
+            "longitude": 28.1528
+        },
+        {
+            "iataCode": "HIC",
+            "icaoCode": null,
+            "name": "Pretoria Iscor H/P",
+            "alpha2countryCode": "ZA",
+            "latitude": -25.6528,
+            "longitude": 28.2194
+        },
+        {
+            "iataCode": "HLA",
+            "icaoCode": "FALA",
+            "name": "Johannesburg Lanseria International Apt",
+            "alpha2countryCode": "ZA",
+            "latitude": -25.9386,
+            "longitude": 27.9261
+        },
+        {
+            "iataCode": "HPR",
+            "icaoCode": null,
+            "name": "Pretoria Central H/P",
+            "alpha2countryCode": "ZA",
+            "latitude": -25.7333,
+            "longitude": 28.1833
+        },
+        {
+            "iataCode": "HRS",
+            "icaoCode": "FAHR",
+            "name": "Harrismith",
+            "alpha2countryCode": "ZA",
+            "latitude": -28.2333,
+            "longitude": 29.1
+        },
+        {
+            "iataCode": "ZEC",
+            "icaoCode": "FASC",
+            "name": "Secunda",
+            "alpha2countryCode": "ZA",
+            "latitude": -26.5333,
+            "longitude": 29.1667
+        },
+        {
+            "iataCode": "JNB",
+            "icaoCode": "FAOR",
+            "name": "Johannesburg",
+            "alpha2countryCode": "ZA",
+            "latitude": -26.1392,
+            "longitude": 28.2461
+        },
+        {
+            "iataCode": "KXE",
+            "icaoCode": "FAKD",
+            "name": "Klerksdorp P.C. Pelser",
+            "alpha2countryCode": "ZA",
+            "latitude": -26.9667,
+            "longitude": 26.65
+        },
+        {
+            "iataCode": "LAY",
+            "icaoCode": "FALY",
+            "name": "Ladysmith",
+            "alpha2countryCode": "ZA",
+            "latitude": -28.5833,
+            "longitude": 29.75
+        },
+        {
+            "iataCode": "LEF",
+            "icaoCode": "FXLK",
+            "name": "Lebakeng",
+            "alpha2countryCode": "LS",
+            "latitude": -29.7833,
+            "longitude": 28.5833
+        },
+        {
+            "iataCode": "LES",
+            "icaoCode": "FXLS",
+            "name": "Lesobeng",
+            "alpha2countryCode": "LS",
+            "latitude": -29.8,
+            "longitude": 28.1333
+        },
+        {
+            "iataCode": "LOQ",
+            "icaoCode": null,
+            "name": "Lobatse",
+            "alpha2countryCode": "BW",
+            "latitude": -25.2,
+            "longitude": 25.6667
+        },
+        {
+            "iataCode": "LRB",
+            "icaoCode": "FXLR",
+            "name": "Leribe",
+            "alpha2countryCode": "LS",
+            "latitude": -28.9667,
+            "longitude": 28
+        },
+        {
+            "iataCode": "MBD",
+            "icaoCode": "FAMM",
+            "name": "Mmabatho/Mafikeng International",
+            "alpha2countryCode": "ZA",
+            "latitude": -25.7983,
+            "longitude": 25.5481
+        },
+        {
+            "iataCode": "MFC",
+            "icaoCode": "FXMF",
+            "name": "Mafeteng",
+            "alpha2countryCode": "LS",
+            "latitude": -29.8,
+            "longitude": 27.25
+        },
+        {
+            "iataCode": "MKH",
+            "icaoCode": "FXMK",
+            "name": "Mokhotlong",
+            "alpha2countryCode": "LS",
+            "latitude": -29.2833,
+            "longitude": 29.0667
+        },
+        {
+            "iataCode": "MSG",
+            "icaoCode": "FXMA",
+            "name": "Matsaile",
+            "alpha2countryCode": "LS",
+            "latitude": -29.7333,
+            "longitude": 28.75
+        },
+        {
+            "iataCode": "MSU",
+            "icaoCode": "FXMM",
+            "name": "Maseru",
+            "alpha2countryCode": "LS",
+            "latitude": -29.4622,
+            "longitude": 27.5525
+        },
+        {
+            "iataCode": "NCS",
+            "icaoCode": "FANC",
+            "name": "Newcastle",
+            "alpha2countryCode": "ZA",
+            "latitude": -27.75,
+            "longitude": 30
+        },
+        {
+            "iataCode": "NKU",
+            "icaoCode": "FXNK",
+            "name": "Nkau",
+            "alpha2countryCode": "LS",
+            "latitude": -30.0219,
+            "longitude": 28.1969
+        },
+        {
+            "iataCode": "NTY",
+            "icaoCode": "FAPN",
+            "name": "Sun City Pilanesberg Intl",
+            "alpha2countryCode": "ZA",
+            "latitude": -25.3339,
+            "longitude": 27.1733
+        },
+        {
+            "iataCode": "PCF",
+            "icaoCode": "FAPS",
+            "name": "Potchefstroom",
+            "alpha2countryCode": "ZA",
+            "latitude": -26.6681,
+            "longitude": 27.0847
+        },
+        {
+            "iataCode": "PEL",
+            "icaoCode": "FXPG",
+            "name": "Pelaneng",
+            "alpha2countryCode": "LS",
+            "latitude": -30.55,
+            "longitude": 27.9167
+        },
+        {
+            "iataCode": "PRY",
+            "icaoCode": "FAWB",
+            "name": "Pretoria Wonderboom Apt",
+            "alpha2countryCode": "ZA",
+            "latitude": -25.65,
+            "longitude": 28.2167
+        },
+        {
+            "iataCode": "PZB",
+            "icaoCode": "FAPM",
+            "name": "Pietermaritzburg",
+            "alpha2countryCode": "ZA",
+            "latitude": -29.6489,
+            "longitude": 30.3986
+        },
+        {
+            "iataCode": "QRA",
+            "icaoCode": "FAGM",
+            "name": "Johannesburg Rand",
+            "alpha2countryCode": "ZA",
+            "latitude": -26.2667,
+            "longitude": 28.15
+        },
+        {
+            "iataCode": "RVO",
+            "icaoCode": "FARI",
+            "name": "Reivilo",
+            "alpha2countryCode": "ZA",
+            "latitude": -27.6,
+            "longitude": 24.1333
+        },
+        {
+            "iataCode": "TBY",
+            "icaoCode": "FBTS",
+            "name": "Tshabong",
+            "alpha2countryCode": "BW",
+            "latitude": -26.0667,
+            "longitude": 22.4667
+        },
+        {
+            "iataCode": "GBE",
+            "icaoCode": "FBSK",
+            "name": "Gaborone",
+            "alpha2countryCode": "BW",
+            "latitude": -24.5553,
+            "longitude": 25.9183
+        },
+        {
+            "iataCode": "JWA",
+            "icaoCode": "FBJW",
+            "name": "Jwaneng",
+            "alpha2countryCode": "BW",
+            "latitude": -24.6025,
+            "longitude": 24.6911
+        }
+    ]
+]

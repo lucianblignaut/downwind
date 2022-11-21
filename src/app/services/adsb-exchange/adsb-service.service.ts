@@ -4,6 +4,7 @@ import { LatLngLiteral } from 'leaflet';
 import { Observable } from 'rxjs';
 import { ADSBExchangeAircraft } from 'src/app/models/ADSBExchangeAircraft.model';
 import { ADSBExchangeResponse } from 'src/app/models/ADSBExchangeResponse.model';
+import { ADSBExchangeAirport } from 'src/app/models/airportDataResponse.model';
 
 export interface CalculateRadiusParams {
   center: LatLngLiteral
@@ -12,7 +13,8 @@ export interface CalculateRadiusParams {
 
 export enum Units {
   KM = 'km',
-  NM = 'nm'
+  NM = 'nm',
+  MI = 'mi'
 }
 
 @Injectable({
@@ -51,7 +53,7 @@ export class AdsbService {
    * @param unit 
    * @returns 
    */
-  calculateRadiusToSearch(coords: CalculateRadiusParams, unit: Units.KM | Units.NM): number {
+  calculateRadiusToSearch(coords: CalculateRadiusParams, unit: Units.KM | Units.NM | Units.MI): number {
     // //1. find the distance between the two coordinates
     const leftLatRadians = coords.center.lat / (180 / Math.PI)
     const leftLongRadians = coords.center.lng / (180 / Math.PI)
@@ -60,12 +62,15 @@ export class AdsbService {
 
     const earthRadiusInKm = 6378
     const distanceInKm = earthRadiusInKm * Math.acos((Math.sin(leftLatRadians) * Math.sin(rightLatRadians)) +
-      Math.cos(leftLatRadians) * Math.cos(rightLatRadians) * Math.cos(rightLongRadians - leftLongRadians))
+      Math.cos(leftLatRadians) * Math.cos(rightLatRadians) * Math.cos(rightLongRadians - leftLongRadians)) + 100
 
     if (unit === Units.NM) {
       // //2. convert to Nautical Miles
       let distanceInNm = distanceInKm * 0.539957
       return distanceInNm
+    } else if (unit = Units.MI) {
+      let distanceInMi = distanceInKm * 0.62
+      return distanceInMi
     }
     return distanceInKm
   }
@@ -91,5 +96,24 @@ export class AdsbService {
     return this.http.get<ADSBExchangeAircraft[]>('assets/data/mockAircraft.json')
   }
 
+  /**
+   * Get all airports within a specified radius in Km from a set of latitude/longitude pairs
+   * @param radius 
+   * @param coords 
+   * @returns 
+   */
+  public getAirportsWithin(radius: number, coords: LatLngLiteral): Observable<ADSBExchangeAirport[]> {
+    const endpoint = `https://aviation-reference-data.p.rapidapi.com/airports/search`;
+    const params = new HttpParams().set("lat", coords.lat).set("lon", coords.lng).set("radius", radius.toFixed(0))
+    const headers = new HttpHeaders()
+      .set(
+        'X-RapidAPI-Key',
+        'f6eca72b2bmsh29a933c62b5d362p172e8cjsn525762457a67'
+      )
+      .set('X-RapidAPI-Host', 'aviation-reference-data.p.rapidapi.com');
+
+    return this.http.get<ADSBExchangeAirport[]>(endpoint, { headers, params })
+    // return this.http.get<ADSBExchangeAirport[]>('assets/data/mockAirports.json')
+  }
 
 }
