@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Actions, createEffect, ofType } from "@ngrx/effects";
+import { act, Actions, createEffect, ofType } from "@ngrx/effects";
 import { map, mergeMap } from "rxjs";
 import { AdsbService } from "src/app/services/adsb-exchange/adsb-service.service";
 import * as MapActions from './map.actions'
@@ -11,6 +11,12 @@ export class MapEffects {
     $loadAircraft = createEffect(() => {
         return this.actions$.pipe(ofType(MapActions.enter), mergeMap(() => {
             return this.adsb.loadMockAircraft().pipe(map((ac) => MapActions.aircraftLoadedSuccess({ aircraft: ac })));
+        }));
+    })
+
+    $loadAirports = createEffect(() => {
+        return this.actions$.pipe(ofType(MapActions.loadAirports), mergeMap((action) => {
+            return this.adsb.getAirportsWithin(action.radius, action.center).pipe(map(airports => MapActions.airportsLoadedSuccess({ airports })))
         }));
     })
 

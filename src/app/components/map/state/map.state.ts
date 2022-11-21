@@ -24,8 +24,11 @@ const selectMapState = createSelector(selectFeatureState, (state: MapFeatureStat
 
 //global store selectors called in components
 export const selectAircraft = createSelector(selectMapState, fromMap.aircraft)
+export const selectAirports = createSelector(selectMapState, fromMap.airports)
 export const selectActiveAircraft = createSelector(selectMapState, fromMap.activeAircraft)
+export const selectActiveAirport = createSelector(selectMapState, fromMap.activeAirport)
 export const selectAircraftLoading = createSelector(selectMapState, fromMap.aircraftLoading)
+export const selectAirportsLoading = createSelector(selectMapState, fromMap.airportsLoading)
 export const selectMapCenter = createSelector(selectMapState, fromMap.mapCenter)
 export const selectAircraftError = createSelector(selectMapState, fromMap.apiError)
 export const selectMapBounds = createSelector(selectMapState, fromMap.mapBounds)
