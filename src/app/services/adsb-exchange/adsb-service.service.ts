@@ -62,7 +62,7 @@ export class AdsbService {
 
     const earthRadiusInKm = 6378
     const distanceInKm = earthRadiusInKm * Math.acos((Math.sin(leftLatRadians) * Math.sin(rightLatRadians)) +
-      Math.cos(leftLatRadians) * Math.cos(rightLatRadians) * Math.cos(rightLongRadians - leftLongRadians))
+      Math.cos(leftLatRadians) * Math.cos(rightLatRadians) * Math.cos(rightLongRadians - leftLongRadians)) + 100
 
     if (unit === Units.NM) {
       // //2. convert to Nautical Miles

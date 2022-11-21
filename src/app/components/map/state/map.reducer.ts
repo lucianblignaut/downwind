@@ -27,7 +27,6 @@ const loadAircraft = (state: MapState, aircraft: ADSBExchangeAircraft[]) => {
     }
 }
 const loadAirports = (state: MapState, airports: ADSBExchangeAirport[]) => {
-    console.log(_.uniqWith([...state.airports, ...airports], _.isEqual));
     return {
         ...state,
         airports: _.uniqWith([...state.airports, ...airports], _.isEqual),
