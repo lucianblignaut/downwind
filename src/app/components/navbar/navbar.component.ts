@@ -30,12 +30,12 @@ export class NavbarComponent implements OnInit {
 
   openNav() {
     this.sidenavOpened = true
-    this.openSidenav.emit(this.sidenavOpened)
+    this.openSidenav.emit(true)
   }
 
   closeNav() {
     this.sidenavOpened = false
-    this.openSidenav.emit(this.sidenavOpened)
+    this.openSidenav.emit(false)
   }
 
 }
