@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { ADSBExchangeAircraft } from 'src/app/models/ADSBExchangeAircraft.model';
 import { ADSBExchangeResponse } from 'src/app/models/ADSBExchangeResponse.model';
 import { ADSBExchangeAirport } from 'src/app/models/airportDataResponse.model';
+import { environment } from 'src/environments/environment';
 
 export interface CalculateRadiusParams {
   center: LatLngLiteral
@@ -34,7 +35,7 @@ export class AdsbService {
     const headers = new HttpHeaders()
       .set(
         'X-RapidAPI-Key',
-        '631de2d043msh66c91cd60275f57p149956jsnb0fc2616d5be'
+        environment.ADSB_KEY
       )
       .set('X-RapidAPI-Host', 'adsbexchange-com1.p.rapidapi.com');
     const params = new HttpParams().set('lon', long).set('lat', lat)
@@ -108,7 +109,7 @@ export class AdsbService {
     const headers = new HttpHeaders()
       .set(
         'X-RapidAPI-Key',
-        'f6eca72b2bmsh29a933c62b5d362p172e8cjsn525762457a67'
+        environment.AIRPORTS_QUERY_KEY
       )
       .set('X-RapidAPI-Host', 'aviation-reference-data.p.rapidapi.com');
 

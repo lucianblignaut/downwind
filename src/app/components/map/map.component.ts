@@ -141,6 +141,8 @@ export class MapComponent implements OnInit, AfterViewInit {
               rotate: 0,         //image base rotate ( default 0 )
               offset: { x: 0, y: 0 }, //image offset ( default { x: 0, y: 0 } )
             },
+          }).on('click', (e) => {
+            console.log('clicked', airport);
           })
         )
       })
